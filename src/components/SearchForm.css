@@ -1,0 +1,15 @@
+.search-form {
+
+}
+
+.search-form.form {
+    padding-bottom: 1rem;
+}
+
+.search-form btn-form {
+    color: white;
+}
+
+.search-form input, .search-form button {
+    margin-top: 0.25rem;
+}
