@@ -58,7 +58,7 @@ class History extends React.Component {
                         </h4>
                         <Button color="primary" className='btn-delete' onClick={this.deleteHistory} active action>Delete History</Button>
                     </div>
-                    <HistoryList historyLists={historyLists} searchAction={this.searchBookFromHistory}/>
+                    <HistoryList className='h-list' historyLists={historyLists} searchAction={this.searchBookFromHistory}/>
                 </div>
             </div>
         );

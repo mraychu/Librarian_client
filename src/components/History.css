@@ -41,6 +41,9 @@
     .history .historyList .title{
         width: 90% !important;
     }
+    .history .historyList .h-list {
+        width: 90% !important;
+    }
 }
 
 .history .historyList .title{
@@ -49,7 +52,11 @@
     color: white;
 }
 
-
+.history .historyList .h-list{
+    width: 70%;
+    margin: 1.5rem auto;
+    color: white;
+}
 
 /*.history .historyList .loading {
     position: fixed;
