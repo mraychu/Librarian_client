@@ -43,10 +43,9 @@ export default class PostItem extends React.Component {
             <div className='post-item d-flex flex-column' onClick={this.handleClick}>
                 <div className='post d-flex'>
                     <div className='wrap'>
-                        <div className='bookName'>Name: {bookName}</div>
-                        <div className='author'>Author: {author}</div>
-                        <div className='location'>Location: {location}</div>
-                        <div className='status'>Status: {status}</div>
+                        <div className='bookName'>書名: {bookName}</div>
+                        <div className='author'>作者與出版資訊: {author}</div>
+                        <div className='status'>{status}</div>
                     </div>
                 </div>
             </div>

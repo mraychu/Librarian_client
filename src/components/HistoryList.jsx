@@ -29,7 +29,7 @@ export default class HistoryList extends React.Component {
         );
         if (historyLists.length) {
             children = historyLists.map(p => (
-                <ListGroupItem tag={Link} to='/' key={p.searchText} action>
+                <ListGroupItem className='card' tag={Link} to='/' key={p.searchText} action>
                     <HistoryItem {...p} searchAction={this.searchBookFromHistory}/>
                 </ListGroupItem>
             ));

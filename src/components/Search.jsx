@@ -79,12 +79,7 @@ class Search extends React.Component {
                         <i className='fa fa-paper-plane' aria-hidden="true"></i>&nbsp;&nbsp;SearchText:
                     </h4>
                     <div className='searchText-show'>
-                        <Alert color='info' className={`d-flex flex-column flex-sm-row justify-content-center`}>
-                            <div className='mood align-self-start'>
-                                {searchText}
-                            </div>
-
-                        </Alert>
+                       {searchText}
                     </div>
                 </div>
                 <div className='searchList'>

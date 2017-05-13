@@ -27,14 +27,17 @@ export default class PostList extends React.Component {
         );
         if (lists.length) {
             children = lists.map(p => (
-                <ListGroupItem key={p.id} action>
+                <div className='item'>
+                <h5 className= {`${p.location} title`}>{p.location}</h5>
+                <ListGroupItem key={p.id} action className= {`${p.location} content`}>
                     <SearchItem {...p}/>
                 </ListGroupItem>
+                </div>
             ));
         }
 
         return (
-            <div className='post-list'>
+            <div className='search-list'>
                 <ListGroup>{children}</ListGroup>
             </div>
         );

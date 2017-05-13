@@ -36,6 +36,7 @@ function unmaskSearchBg() {
 
 export function getBook(searchText, searchType) {
     return (dispatch, getState) => {
+        dispatch(resetSearch());
         dispatch(startSearch(searchText, searchType));
         dispatch(setSearchType(searchType));
         dispatch(maskSearchBg());
@@ -49,7 +50,7 @@ export function getBook(searchText, searchType) {
             console.log('end nthu');
         }).catch(err => {
             console.error('Error getting book nthu', err);
-            dispatch(resetSearch())
+            dispatch(resetSearch());
         });
         getBookNCTU(searchText, searchType).then(books => {
             const lists = books.data;
@@ -57,7 +58,7 @@ export function getBook(searchText, searchType) {
             console.log('end NCTU');
         }).catch(err => {
             console.error('Error getting book NCTU', err);
-            dispatch(resetSearch())
+            dispatch(resetSearch());
         });
     };
 };

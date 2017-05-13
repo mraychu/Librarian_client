@@ -80,7 +80,7 @@ export function search(state = initSearchState, action) {
             };
         case '@SEARCH/RESET_SEARCH':
             return {
-                ...State,
+                ...initSearchState,
                 masking: state.masking,
                 hasSearched: true,
                 searchLoading_nthu: false,

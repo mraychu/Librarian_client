@@ -1,13 +1,35 @@
-.post-list {
+.search-list {
 }
 
-.post-list .empty {
+.search-list .empty {
     height: 8rem;
     border-color: rgba(255, 255, 255, 0);
     background-color: transparent;
 }
 
-.post-list .empty-text {
+.search-list .empty-text {
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
+}
+
+.search-list .item .content{
+	border-radius: 25px;
+	background-color: rgba(137,15,1, 0.7) !important;
+	border: solid rgba(255,255,255,0.85) 1px !important;
+}
+
+.search-list .item {
+	width: 70%;
+	margin: 1.5rem auto;
+}
+
+.search-list .item .title{
+	color: white !important;
+}
+
+@media (max-width: 576px) {
+    .search-list .item {
+        width: 90%;
+        margin: 1.5rem auto;
+    }
 }
