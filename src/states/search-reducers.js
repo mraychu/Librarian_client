@@ -58,7 +58,7 @@ export function search(state = initSearchState, action) {
                 ...state,
                 searchLoading_nthu: false,
                 hasSearched: true,
-                lists: action.lists
+                lists: state.lists.concat(action.lists)
             };
         case '@SEARCH/END_SEARCH_NCTU':
             console.log('ending_NCTU');
@@ -66,7 +66,7 @@ export function search(state = initSearchState, action) {
                 ...state,
                 searchLoading_nctu: false,
                 hasSearched: true,
-                lists: action.lists
+                lists: state.lists.concat(action.lists)
             };
         case '@SEARCH/MASK_SEARCH_BG':
             return {

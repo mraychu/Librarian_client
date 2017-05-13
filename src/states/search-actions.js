@@ -19,7 +19,7 @@ function endSearchNTHU(lists) {
 }
 
 function endSearchNCTU(lists) {
-    return {type: '@SEARCH/END_SEARCH_NUCT', lists};
+    return {type: '@SEARCH/END_SEARCH_NCTU', lists};
 }
 
 function resetSearch() {
