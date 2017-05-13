@@ -37,7 +37,7 @@ export default class PostItem extends React.Component {
     }
 
     render() {
-        const {bookName, author, location} = this.props;
+        const {bookName, author, location, status} = this.props;
 
         return (
             <div className='post-item d-flex flex-column' onClick={this.handleClick}>
@@ -46,6 +46,7 @@ export default class PostItem extends React.Component {
                         <div className='bookName'>Name: {bookName}</div>
                         <div className='author'>Author: {author}</div>
                         <div className='location'>Location: {location}</div>
+                        <div className='status'>Status: {status}</div>
                     </div>
                 </div>
             </div>

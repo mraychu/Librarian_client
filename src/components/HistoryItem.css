@@ -1,0 +1,53 @@
+.history-item {
+    width: 100%
+}
+
+.history-item .history {
+    width: 100%
+}
+
+.history-item .mood {
+    text-align: center;
+    font-size: 2rem;
+    width: 3rem;
+}
+
+.history-item .wrap {
+    width: 100%;
+    padding-left: 0.75rem;
+    overflow: hidden;
+}
+
+.history-item .ts {
+    color: #bcbcbc;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.history-item .text {
+    white-space: pre-wrap;
+}
+
+.history-item .vote {
+    color: #bcbcbc;
+    padding-top: 0.5rem;
+}
+
+.history-item .vote .vote-plus i {
+    color: #bcdff1;
+    padding-left: 0.5rem;
+}
+
+.tooltip-inner {
+    max-width: none !important;
+}
+
+.tooltip-inner i.vote-tooltip {
+    font-size: 1.5rem;
+    width: 2.25rem;
+    line-height: 1.75;
+}
+
+.tooltip-inner i.vote-tooltip:hover {
+    color: #31b0d5
+}

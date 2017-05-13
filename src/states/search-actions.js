@@ -14,7 +14,7 @@ function startSearch(searchText, searchType) {
 }
 
 function endSearch(lists) {
-    return {type: '@WEATHER/END_SEARCH', lists};
+    return {type: '@SEARCH/END_SEARCH', lists};
 }
 
 function resetSearch() {
@@ -37,10 +37,11 @@ export function getBook(searchText, searchType) {
         setTimeout(() => {
             dispatch(unmaskSearchBg());
         }, 600);
-
+        console.log('hihi');
         return getBookNTHU(searchText, searchType).then(books => {
             const lists = books.data;
             dispatch(endSearch(lists));
+            console.log('hi');
             dispatch(setSearchType(searchType));
         }).catch(err => {
             console.error('Error getting book', err);

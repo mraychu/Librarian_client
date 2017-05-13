@@ -10,12 +10,12 @@ import {searchType, search, searchForm} from 'states/search-reducers.js';
 // import {searchText, post, postForm, postItem} from 'states/post-reducers.js';
 // import {todoForm, todo} from 'states/todo-reducers.js';
 import {main} from 'states/main-reducers.js';
-
+import {history} from 'states/history-reducers.js'
 import 'bootstrap/dist/css/bootstrap.css';
 
 window.onload = function() {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    const store = createStore(combineReducers({searchType, main, searchForm, search}), composeEnhancers(applyMiddleware(thunkMiddleware/*, loggerMiddleware*/)));
+    const store = createStore(combineReducers({searchType, main, searchForm, search, history}), composeEnhancers(applyMiddleware(thunkMiddleware/*, loggerMiddleware*/)));
 
     ReactDOM.render(
         <Provider store={store}>

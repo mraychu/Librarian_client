@@ -7,24 +7,21 @@ const BaseUrl = 'http://localhost:8080/api/NTHU';
 // Staging server URL
 // const BaseUrl = 'http://weathermood-staging.us-west-2.elasticbeanstalk.com/api/NTHU';
 
-const byISBN = 0;
-const byName = 1;
-
 export function getBookNTHU(searchText, type) {
     // For test
-    type = 0;
-    searchText = '123';
+    //type=0;
+    //searchText='123';
 
     if (!searchText || !searchText.trim()) {
         console.error("Error getting book - searchText cannot be empty.");
         return;
     }
     let url = `${BaseUrl}`;
-    if (type === byISBN)
+    if (type === "isbn")
         url += "/ISBN?searchText=";
     else
         url += "/book?searchText=";
-    url += searchText;
+    url += encodeURIComponent(searchText);
 
     console.log(`Making GET request to: ${url}`);
 
@@ -44,7 +41,7 @@ export function getBookNTHU(searchText, type) {
         while (idx !== -1) {
             result[i] = {};
 
-            /* Get title */
+            /* Get title, Expected format: var title = '...'; */
             let subStr = '',
                 j;
             data = data.slice(idx + titleFlag.length + 1); // Bad efficiency...
@@ -65,7 +62,7 @@ export function getBookNTHU(searchText, type) {
             result[i]['bookName'] = subStr;
             //console.log("BookName =",subStr);
 
-            /* Get author */
+            /* Get author, Expected format: <td   width=\"15%\" valign=top>....<td/> */
             subStr = ''
             j = data.indexOf(authorFlag) + authorFlag.length;
             for (; j < data.length; j++) {
@@ -81,17 +78,23 @@ export function getBookNTHU(searchText, type) {
             result[i]['author'] = subStr;
             //console.log("Author =",subStr);
 
-            /* Get location */
+            /* Get location, Expected format: <a sub_library=NTHU>....<a/> */
             subStr = '';
             j = data.indexOf(locationFlag) + locationFlag.length;
-            for (; j < data.length && data.charAt(j) !== '>'; j++) 
+            for (; j < data.length && data.charAt(j) !== '>'; j++)
             ;
             j++;
             while (data.charAt(j) !== '<') {
                 subStr += data.charAt(j);
                 j++;
             }
-            result[i]['location'] = [subStr];
+
+            let temp = subStr.indexOf("(");
+            if (temp != -1) {
+                result[i]['status'] = ["館藏/借出 - " + subStr.slice(temp)];
+                subStr = subStr.slice(0, temp);
+            }
+            result[i]['location'] = ["清華大學圖書館 - " + subStr];
             //console.log("Location =",subStr);
 
             idx = data.indexOf(titleFlag);
@@ -106,7 +109,13 @@ export function getBookNTHU(searchText, type) {
                     subStr += data.charAt(j);
                     j++;
                 }
-                result[i]['location'].push(subStr);
+
+                temp = subStr.indexOf("(");
+                if (temp != -1) {
+                    result[i]['status'].push("館藏/借出 - " + subStr.slice(temp));
+                    subStr = subStr.slice(0, temp - 1);
+                }
+                result[i]['location'].push("清華大學圖書館 - " + subStr);
                 //console.log("Location =",subStr);
             }
 

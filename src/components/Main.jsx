@@ -15,6 +15,7 @@ import {
 import {connect} from 'react-redux';
 
 import Search from 'components/Search.jsx';
+import History from 'components/History.jsx'
 //import Forecast from 'components/Forecast.jsx';
 //import {setSearchText} from 'states/post-actions.js';
 import {toggleNavbar} from 'states/main-actions.js';

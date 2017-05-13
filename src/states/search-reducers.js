@@ -1,9 +1,9 @@
 const initsearchTypeState = 'name';
 
 export function searchType(state = initsearchTypeState, action) {
-    switch (action.type) {
+    switch (action.searchType) {
         case '@TYPE/SET_TYPE':
-            return action.type;
+            return action.searchType;
         default:
             return state;
     }
@@ -49,7 +49,12 @@ export function search(state = initSearchState, action) {
                 }
             }
         case '@SEARCH/END_SEARCH':
-            return {bookName: action.bookName, bookISBN: action.bookISBN, searchLoading: false, hasSearched: true};
+            return {
+                ...state,
+                searchLoading: false,
+                hasSearched: true,
+                lists: action.lists
+            };
         case '@SEARCH/MASK_SEARCH_BG':
             return {
                 ...state,
@@ -64,7 +69,8 @@ export function search(state = initSearchState, action) {
             return {
                 ...initSearchState,
                 masking: state.masking,
-                hasSearched: true
+                hasSearched: true,
+                searchLoading: false
             };
         default:
             return state;

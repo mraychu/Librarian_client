@@ -59,6 +59,7 @@ class Search extends React.Component {
             searchLoading,
             hasSearched
         } = this.props;
+        //console.log(this.props);
         //document.body.className = `weather-bg ${group}`;
         document.querySelector('.librarian-bg .mask').className = `mask ${masking
             ? 'masking'

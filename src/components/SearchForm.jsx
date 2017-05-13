@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {instanceOf, PropTypes} from 'prop-types';
+import Cookies from 'universal-cookie';
 import {
     Form,
     Input,
@@ -10,8 +11,8 @@ import {
     DropdownItem
 } from 'reactstrap';
 import {connect} from 'react-redux';
-
 import {input, toggleSearchType, selectSearchType} from 'states/search-actions.js';
+import {addHistory} from 'states/history-actions.js'
 
 import './SearchForm.css';
 
@@ -35,6 +36,7 @@ class SearchForm extends React.Component {
         super(props);
 
         this.inputEl = null;
+        this.cookies = new Cookies();
 
         //this.handleFormToggle = this.handleFormToggle.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -101,6 +103,8 @@ class SearchForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
+        console.log(Cookies);
+        console.log(this.cookies);
         this.inputEl.blur();
         const {inputValue, searchText, searchType, dispatch} = this.props;
         if (inputValue && inputValue.trim()) {
@@ -109,6 +113,21 @@ class SearchForm extends React.Component {
         } else {
             dispatch(input(searchText));
         }
+        if (inputValue && inputValue.trim()) {
+            console.log(this.cookies, this.cookies.get);
+            let history_cookie = this.cookies.get('history');
+            if (history_cookie === undefined) {
+                history_cookie = [];
+            }
+            let history_add = {
+                searchText: inputValue,
+                searchType: searchType
+            }
+            history_cookie.push(history_add);
+            //this.cookies.set('history', history_cookie);
+            dispatch(addHistory(history_cookie));
+        }
+
     }
 
     handleSearchTypeToggle(e) {

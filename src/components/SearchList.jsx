@@ -27,7 +27,7 @@ export default class PostList extends React.Component {
         );
         if (lists.length) {
             children = lists.map(p => (
-                <ListGroupItem key={p.bookName} action>
+                <ListGroupItem key={p.id} action>
                     <SearchItem {...p}/>
                 </ListGroupItem>
             ));
