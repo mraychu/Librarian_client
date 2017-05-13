@@ -20,10 +20,12 @@ export default class PostList extends React.Component {
         const {lists, hasSearched} = this.props;
 
         let children = (
+   
             <ListGroupItem className='empty d-flex justify-content-center align-items-center'>
                 {hasSearched && <div className='empty-text'>No Result.<br/>Try another searchText.</div>}
                 {!hasSearched && <div className='empty-text'>Try to search something!</div>}
             </ListGroupItem>
+
         );
         if (lists.length) {
             children = lists.map(p => (

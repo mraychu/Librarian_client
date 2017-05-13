@@ -2,9 +2,18 @@
 }
 
 .search-list .empty {
-    height: 8rem;
+   /* height: 8rem;
     border-color: rgba(255, 255, 255, 0);
+    background-color: transparent;*/
+    margin: 1.5rem auto;
+    width: 90%;
+    color: white;
+    border-radius: 25px;
     background-color: transparent;
+    border: solid rgba(255,255,255,0.85) 1px !important;
+    height: 20rem;
+    font-size: 2rem;
+    font-weight: 900;
 }
 
 .search-list .empty-text {

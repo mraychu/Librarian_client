@@ -52,7 +52,7 @@ class History extends React.Component {
         return (
             <div className='history'>
                 <div className='historyList'>
-                    <div>
+                    <div className='title'>
                         <h4 className='label'>
                             <i className='fa fa-paper-plane' aria-hidden="true"></i>&nbsp;&nbsp;History:
                         </h4>

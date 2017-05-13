@@ -64,13 +64,13 @@ class SearchForm extends React.Component {
 
         return (
             <div className={`search-form`}>
-                <Form className='form-inline justify-content-center' onSubmit={this.handleSubmit}>
-                    <Input type='text' name='input' getRef={el => {
+                <Form className='form-inline justify-content-center form-body' onSubmit={this.handleSubmit}>
+                    <Input className='II' type='text' name='input' getRef={el => {
                         this.inputEl = el
                     }} value={inputValue
                         ? inputValue
                         : ''} onChange={this.handleInputChange}></Input>&nbsp;
-                    <ButtonDropdown type='buttom' isOpen={searchTypeToggle} toggle={this.handleSearchTypeToggle}>
+                    <ButtonDropdown type='buttom' isOpen={searchTypeToggle} toggle={this.handleSearchTypeToggle} className='bd'>
                         <DropdownToggle type='button' caret color="secondary">
                             {SearchForm.getSearchTypeString(searchType)}
                         </DropdownToggle>

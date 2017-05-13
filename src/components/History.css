@@ -31,13 +31,25 @@
     text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3), 0 0 1rem rgba(0, 0, 0, 0.7);
     margin-bottom: 1rem;
     font-weight: 300;
+   
 }
 
 @media (max-width: 576px) {
     .card {
         width: 90% !important; 
     }
+    .history .historyList .title{
+        width: 90% !important;
+    }
 }
+
+.history .historyList .title{
+    width: 70%;
+    margin: 1.5rem auto;
+    color: white;
+}
+
+
 
 /*.history .historyList .loading {
     position: fixed;

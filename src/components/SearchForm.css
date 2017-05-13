@@ -1,5 +1,6 @@
 .search-form {
-
+	width: 80%;
+	margin: 1rem auto;
 }
 
 .search-form.form {
@@ -13,3 +14,21 @@
 .search-form input, .search-form button {
     margin-top: 0.25rem;
 }
+/*.search-form .II{
+	width: 45% !important;
+}
+
+.search-form .bd{
+	width: 10% !important;
+}
+
+.search-form .bd button{
+	width: 10% !important;
+}
+
+.search-form button{
+	width: 10% !important;
+}
+.search-form .form-body{
+	width: 100% !important;
+}*/
