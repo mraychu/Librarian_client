@@ -13,7 +13,8 @@ const initSearchState = {
     // bookName: 'na',
     // bookISBN: -1,
     searchText: '',
-    searchLoading: false,
+    searchLoading_nthu: false,
+    searchLoading_nctu: false,
     masking: false,
     hasSearched: false,
     // list: []
@@ -38,20 +39,32 @@ export function search(state = initSearchState, action) {
                     ...state,
                     //bookName: 'na',
                     searchText: action.searchText, // set city state immediately to prevent input text (in WeatherForm) from blinking
-                    searchLoading: true
+                    searchLoading_nthu: true,
+                    searchLoading_nctu: true
+
                 };
             } else {
                 return {
                     ...state,
                     //bookISBN: -1,
                     searchText: action.searchText,
-                    searchLoading: true
+                    searchLoading_nthu: true,
+                    searchLoading_nctu: true
                 }
             }
-        case '@SEARCH/END_SEARCH':
+        case '@SEARCH/END_SEARCH_NTHU':
+            console.log('ending_nthu');
             return {
                 ...state,
-                searchLoading: false,
+                searchLoading_nthu: false,
+                hasSearched: true,
+                lists: action.lists
+            };
+        case '@SEARCH/END_SEARCH_NCTU':
+            console.log('ending_NCTU');
+            return {
+                ...state,
+                searchLoading_nctu: false,
                 hasSearched: true,
                 lists: action.lists
             };
@@ -67,10 +80,11 @@ export function search(state = initSearchState, action) {
             };
         case '@SEARCH/RESET_SEARCH':
             return {
-                ...initSearchState,
+                ...State,
                 masking: state.masking,
                 hasSearched: true,
-                searchLoading: false
+                searchLoading_nthu: false,
+                searchLoading_nctu: false
             };
         default:
             return state;

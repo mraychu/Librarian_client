@@ -1,6 +1,7 @@
 import React from 'react';
 import {instanceOf, PropTypes} from 'prop-types';
-import Cookies from 'universal-cookie';
+import cookie from 'react-cookie';
+//import Cookies from 'universal-cookie';
 import {
     Form,
     Input,
@@ -12,7 +13,8 @@ import {
 } from 'reactstrap';
 import {connect} from 'react-redux';
 import {input, toggleSearchType, selectSearchType} from 'states/search-actions.js';
-import {addHistory} from 'states/history-actions.js'
+import {addHistory} from 'states/history-actions.js';
+import moment from 'moment';
 
 import './SearchForm.css';
 
@@ -36,7 +38,7 @@ class SearchForm extends React.Component {
         super(props);
 
         this.inputEl = null;
-        this.cookies = new Cookies();
+        // this.cookies = new Cookies();
 
         //this.handleFormToggle = this.handleFormToggle.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -103,8 +105,8 @@ class SearchForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        console.log(Cookies);
-        console.log(this.cookies);
+        // console.log(Cookies);
+        // console.log(this.cookies);
         this.inputEl.blur();
         const {inputValue, searchText, searchType, dispatch} = this.props;
         if (inputValue && inputValue.trim()) {
@@ -114,17 +116,20 @@ class SearchForm extends React.Component {
             dispatch(input(searchText));
         }
         if (inputValue && inputValue.trim()) {
-            console.log(this.cookies, this.cookies.get);
-            let history_cookie = this.cookies.get('history');
+            // console.log(this.cookies, this.cookies.get);
+            let history_cookie = cookie.load('history');
             if (history_cookie === undefined) {
                 history_cookie = [];
             }
+            let date = new Date();
+            let date_f = moment(date).calendar();
             let history_add = {
                 searchText: inputValue,
-                searchType: searchType
+                searchType: searchType,
+                searchTime: date_f
             }
             history_cookie.push(history_add);
-            //this.cookies.set('history', history_cookie);
+            cookie.save('history', history_cookie);
             dispatch(addHistory(history_cookie));
         }
 

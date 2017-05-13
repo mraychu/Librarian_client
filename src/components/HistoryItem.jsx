@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Tooltip} from 'reactstrap';
+import {Tooltip, Button} from 'reactstrap';
 import {connect} from 'react-redux';
 import moment from 'moment';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
+import {getBook} from 'states/search-actions.js';
 //import {getMoodIcon} from 'utilities/weather.js';
 //import {createVote, setTooltipToggle, toggleTooltip} from 'states/post-actions.js';
 
@@ -14,7 +16,8 @@ export default class HistoryItem extends React.Component {
 
         dispatch: PropTypes.func,
         searchText: PropTypes.string,
-        searchType: PropTypes.string
+        searchType: PropTypes.string,
+        searchTime: PropTypes.string
     };
 
     constructor(props) {
@@ -26,12 +29,13 @@ export default class HistoryItem extends React.Component {
     }
 
     render() {
-        const {searchText, searchType} = this.props;
+        const {searchText, searchType, searchTime} = this.props;
 
         return (
             <div className='history-item d-flex flex-column' onClick={this.handleClick}>
-                <div className='history d-flex'>
-                    <div className='wrap'>
+                <div className='history d-flex row'>
+                    <div className='wrap col-md-8'>
+                        <div className='searchTime'>SearchTime: {searchTime}</div>
                         <div className='searchText'>SearchText: {searchText}</div>
                         <div className='searchType'>SearchType: {searchType}</div>
                     </div>
@@ -41,7 +45,8 @@ export default class HistoryItem extends React.Component {
     }
 
     handleClick() {
-        //this.props.dispatch(setTooltipToggle(this.props.id, true));
+        const {searchText, searchType} = this.props;
+        this.props.searchAction(searchText, searchType);
     }
 
     handleTooltipToggle() {
@@ -59,3 +64,5 @@ export default class HistoryItem extends React.Component {
 //         ? true
 //         : false
 // }))(PostItem);
+//         : false
+//}

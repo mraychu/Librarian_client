@@ -10,7 +10,7 @@ export function history(state = initHistoryState, action) {
                 historyLists: action.historyLists
             };
         case '@HISTORY/DELETE_HISTORY':
-            return initSearchState;
+            return initHistoryState;
         default:
             return state;
     }

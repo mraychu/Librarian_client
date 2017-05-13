@@ -56,7 +56,8 @@ class Search extends React.Component {
             masking,
             lists,
             searchText,
-            searchLoading,
+            searchLoading_nthu,
+            searchLoading_nctu,
             hasSearched
         } = this.props;
         //console.log(this.props);
@@ -90,7 +91,7 @@ class Search extends React.Component {
                     <h4 className='label'>
                         <i className='fa fa-paper-plane' aria-hidden="true"></i>&nbsp;&nbsp;SearchResult:
                     </h4>
-                    <SearchList lists={lists} hasSearched={hasSearched}/> {searchLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
+                    <SearchList lists={lists} hasSearched={hasSearched}/> {(searchLoading_nthu || searchLoading_nctu) && <Alert color='warning' className='loading'>Loading...</Alert>}
                 </div>
             </div>
         );

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {ListGroup, ListGroupItem} from 'reactstrap';
-
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import HistoryItem from 'components/HistoryItem.jsx';
 // import {createVote} from 'api/posts.js';
 
@@ -14,6 +14,7 @@ export default class HistoryList extends React.Component {
 
     constructor(props) {
         super(props);
+        this.searchBookFromHistory = this.searchBookFromHistory.bind(this);
     }
 
     render() {
@@ -28,8 +29,8 @@ export default class HistoryList extends React.Component {
         );
         if (historyLists.length) {
             children = historyLists.map(p => (
-                <ListGroupItem key={p.searchText} action>
-                    <SearchItem {...p}/>
+                <ListGroupItem tag={Link} to='/' key={p.searchText} action>
+                    <HistoryItem {...p} searchAction={this.searchBookFromHistory}/>
                 </ListGroupItem>
             ));
         }
@@ -40,4 +41,9 @@ export default class HistoryList extends React.Component {
             </div>
         );
     }
+
+    searchBookFromHistory(searchText, searchType) {
+        this.props.searchAction(searchText, searchType);
+    }
+
 }

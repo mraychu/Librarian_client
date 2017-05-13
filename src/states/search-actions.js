@@ -1,4 +1,5 @@
 import {getBookNTHU} from 'api/NTHU.js';
+import {getBookNCTU} from 'api/NCTU.js';
 //import {getWeather as getWeatherFromApi, cancelWeather, getForecast as getForecastFromApi, cancelForecast} from 'api/open-weather-map.js';
 
 /*  Unit */
@@ -13,8 +14,12 @@ function startSearch(searchText, searchType) {
     return {type: '@SEARCH/START_SEARCH', searchText, searchType};
 }
 
-function endSearch(lists) {
-    return {type: '@SEARCH/END_SEARCH', lists};
+function endSearchNTHU(lists) {
+    return {type: '@SEARCH/END_SEARCH_NTHU', lists};
+}
+
+function endSearchNCTU(lists) {
+    return {type: '@SEARCH/END_SEARCH_NUCT', lists};
 }
 
 function resetSearch() {
@@ -31,21 +36,28 @@ function unmaskSearchBg() {
 
 export function getBook(searchText, searchType) {
     return (dispatch, getState) => {
-        dispatch(resetSearch());
         dispatch(startSearch(searchText, searchType));
+        dispatch(setSearchType(searchType));
         dispatch(maskSearchBg());
         setTimeout(() => {
             dispatch(unmaskSearchBg());
         }, 600);
         console.log('hihi');
-        return getBookNTHU(searchText, searchType).then(books => {
+        getBookNTHU(searchText, searchType).then(books => {
             const lists = books.data;
-            dispatch(endSearch(lists));
-            console.log('hi');
-            dispatch(setSearchType(searchType));
+            dispatch(endSearchNTHU(lists));
+            console.log('end nthu');
         }).catch(err => {
-            console.error('Error getting book', err);
-            dispatch(resetSearch());
+            console.error('Error getting book nthu', err);
+            dispatch(resetSearch())
+        });
+        getBookNCTU(searchText, searchType).then(books => {
+            const lists = books.data;
+            dispatch(endSearchNCTU(lists));
+            console.log('end NCTU');
+        }).catch(err => {
+            console.error('Error getting book NCTU', err);
+            dispatch(resetSearch())
         });
     };
 };
