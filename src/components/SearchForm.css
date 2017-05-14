@@ -11,9 +11,19 @@
     color: white;
 }
 
+input::placeholder {
+  color: rgba(158, 155, 157, 0.8) !important;
+}
+
 .search-form input, .search-form button {
     margin-top: 0.25rem;
 }
+
+.II {
+		display: block !important;
+		width: 100% !important;
+}
+
 /*.search-form .II{
 	width: 45% !important;
 }

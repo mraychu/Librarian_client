@@ -52,11 +52,14 @@ class History extends React.Component {
         return (
             <div className='history'>
                 <div className='historyList'>
-                    <div className='title'>
+                    <div className='title '>
                         <h4 className='label'>
                             <i className='fa fa-paper-plane' aria-hidden="true"></i>&nbsp;&nbsp;History:
                         </h4>
-                        <Button color="primary" className='btn-delete' onClick={this.deleteHistory} active action>Delete History</Button>
+                        <div className='d-bt'>
+                            <Button Button outline color="warning" size="lg" block className='btn-delete' onClick={this.deleteHistory} >Delete History</Button>
+                        </div>
+                        
                     </div>
                     <HistoryList className='h-list' historyLists={historyLists} searchAction={this.searchBookFromHistory}/>
                 </div>

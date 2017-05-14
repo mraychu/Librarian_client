@@ -44,7 +44,31 @@
 }*/
 
 @media (max-width: 576px) {
+    .title {
+        font-size: 1.5rem !important;
+/*        font-weight: 200 !important;
+*/    }
+    .item {
+        font-size: 1rem !important;
+/*        font-weight: 200 !important;
+*/    }
+    .navbar-top .space {
+        display: none !important;
+    }
     .navbar-top .icon {
         display: none !important;
     }
+}
+.title {
+    font-family: 'Inknut Antiqua', serif !important;
+    /*color: white !important;*/
+    font-size: 2rem ;
+    font-weight: 400;
+    font-style: normal !important;
+}
+.item {
+    /*font-family: 'Ravi Prakash', cursive !important;*/
+    font-size: 1.5rem ;
+    font-weight: 400;
+    color: white !important;
 }

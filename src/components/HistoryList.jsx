@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {ListGroup, ListGroupItem} from 'reactstrap';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import HistoryItem from 'components/HistoryItem.jsx';
+import uuid from 'uuid/v4';
 // import {createVote} from 'api/posts.js';
 
 import './HistoryList.css';
@@ -29,7 +30,7 @@ export default class HistoryList extends React.Component {
         );
         if (historyLists.length) {
             children = historyLists.map(p => (
-                <ListGroupItem className='card' tag={Link} to='/' key={p.searchText} action>
+                <ListGroupItem className='card' tag={Link} to='/' key={uuid()} action>
                     <HistoryItem {...p} searchAction={this.searchBookFromHistory}/>
                 </ListGroupItem>
             ));

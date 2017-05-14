@@ -65,7 +65,7 @@ class SearchForm extends React.Component {
         return (
             <div className={`search-form`}>
                 <Form className='form-inline justify-content-center form-body' onSubmit={this.handleSubmit}>
-                    <Input className='II' type='text' name='input' getRef={el => {
+                    <Input placeholder='keyword' className='II' type='text' size='lg' name='input' getRef={el => {
                         this.inputEl = el
                     }} value={inputValue
                         ? inputValue

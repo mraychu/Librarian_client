@@ -34,10 +34,10 @@ export default class HistoryItem extends React.Component {
         return (
             <div className='history-item d-flex flex-column' onClick={this.handleClick}>
                 <div className='history d-flex row'>
-                    <div className='wrap col-md-8'>
-                        <div className='searchTime'>SearchTime: {searchTime}</div>
-                        <div className='searchText'>SearchText: {searchText}</div>
-                        <div className='searchType'>SearchType: {searchType}</div>
+                    <div className='wrap col-md-12'>
+                        <div className='searchText'>Search text: {searchText}</div>
+                        <div className='searchType'>Search type: {searchType}</div>
+                        <div className='d-flex justify-content-end search-time'><span>{searchTime}</span></div>
                     </div>
                 </div>
             </div>

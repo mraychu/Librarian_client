@@ -71,10 +71,10 @@ class Search extends React.Component {
 
         return (
             <div className='search'>
-                <div className='searchForm'>
+                <div className='searchForm group'>
                     <SearchForm searchText={searchText} defaultType={searchType} submitAction={getBook}/>
                 </div>
-                <div className='searchText'>
+                <div className='searchText group'>
                     <h4 className='label'>
                         <i className='fa fa-paper-plane' aria-hidden="true"></i>&nbsp;&nbsp;SearchText:
                     </h4>
@@ -82,7 +82,7 @@ class Search extends React.Component {
                        {searchText}
                     </div>
                 </div>
-                <div className='searchList'>
+                <div className='searchList group'>
                     <h4 className='label'>
                         <i className='fa fa-paper-plane' aria-hidden="true"></i>&nbsp;&nbsp;SearchResult:
                     </h4>

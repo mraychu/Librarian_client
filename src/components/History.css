@@ -34,7 +34,16 @@
    
 }
 
+@media (min-width: 576px){
+    .d-bt{
+        font-size: 2rem !important;
+    }
+}
+
 @media (max-width: 576px) {
+    .history .historyList .d-bt {
+        width: 90% !important;
+    }
     .card {
         width: 90% !important; 
     }
@@ -44,6 +53,11 @@
     .history .historyList .h-list {
         width: 90% !important;
     }
+}
+
+.history .historyList .d-bt {
+    margin :0px auto;
+    width: 70%;
 }
 
 .history .historyList .title{
@@ -56,6 +70,10 @@
     width: 70%;
     margin: 1.5rem auto;
     color: white;
+}
+
+.btn-delete {
+    /*float: right !important;*/
 }
 
 /*.history .historyList .loading {
