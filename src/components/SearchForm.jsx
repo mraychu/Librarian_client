@@ -31,7 +31,7 @@ class SearchForm extends React.Component {
     static getSearchTypeString(searchType) {
         return searchType === 'isbn'
             ? 'ISBN'
-            : 'Name';
+            : '書名';
     }
 
     constructor(props) {
@@ -69,17 +69,17 @@ class SearchForm extends React.Component {
                         this.inputEl = el
                     }} value={inputValue
                         ? inputValue
-                        : ''} onChange={this.handleInputChange}></Input>&nbsp;
+                        : ''} onChange={this.handleInputChange}></Input>&nbsp;&nbsp;
                     <ButtonDropdown type='buttom' isOpen={searchTypeToggle} toggle={this.handleSearchTypeToggle} className='bd'>
                         <DropdownToggle type='button' caret color="secondary">
                             {SearchForm.getSearchTypeString(searchType)}
                         </DropdownToggle>
                         <DropdownMenu>
-                            <DropdownItem type='button' onClick={this.handleNameSearchType}>Name</DropdownItem>
-                            <DropdownItem type='button' onClick={this.handleISBNSearchType}>ISBN</DropdownItem>
+                            <DropdownItem type='button' onClick={this.handleNameSearchType}><i className="fa fa-book fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;書名</DropdownItem>
+                            <DropdownItem type='button' onClick={this.handleISBNSearchType}><i className='fa fa-barcode fa-lg' aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;ISBN</DropdownItem>
                         </DropdownMenu>
                     </ButtonDropdown>&nbsp;
-                    <Button color="info">Check</Button>
+                    <Button className='not-weathermood-btn' color="info"><i className='fa fa-rocket fa-lg' aria-hidden="true"></i>&nbsp;&nbsp;Search</Button>
                 </Form>
 
             </div>
@@ -128,7 +128,7 @@ class SearchForm extends React.Component {
                 searchType: searchType,
                 searchTime: date_f
             }
-            history_cookie.push(history_add);
+            history_cookie = [history_add].concat(history_cookie);
             cookie.save('history', history_cookie);
             dispatch(addHistory(history_cookie));
         }

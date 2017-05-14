@@ -16,17 +16,21 @@
     width: 100%;
     padding-left: 0.75rem;
     overflow: hidden;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
 }
 
-.history-item .ts {
+.history-item .search-time {
     color: #bcbcbc;
-    font-size: 0.875rem;
+    font-size: 1.2rem;
     margin-bottom: 0.25rem;
 }
 
 .history-item .text {
     white-space: pre-wrap;
 }
+
 
 .history-item .vote {
     color: #bcbcbc;

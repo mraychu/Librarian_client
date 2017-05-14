@@ -1,5 +1,5 @@
 .search-form {
-	width: 80%;
+	width: 100%;
 	margin: 1rem auto;
 }
 
@@ -21,7 +21,17 @@ input::placeholder {
 
 .II {
 		display: block !important;
-		width: 100% !important;
+		width: 50% !important;
+}
+
+.not-weathermood-btn {
+		background-color: rgb(137,15,1) !important;
+		border: solid white 1px !important;
+}
+
+.not-weathermood-btn:hover {
+		background-color: Crimson !important;
+		border: solid Crimson !important;
 }
 
 /*.search-form .II{

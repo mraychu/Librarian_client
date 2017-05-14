@@ -13,8 +13,14 @@
 }
 
 .post-item .wrap {
-    color: white!important;
+    color: black;
     width: 100%;
     padding-left: 0.75rem;
     overflow: hidden;
+}
+
+.text {
+    color: rgb(137,15,1) !important;
+    font-style: normal;
+    font-weight: 700 !important;
 }

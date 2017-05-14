@@ -75,18 +75,18 @@ class Search extends React.Component {
                     <SearchForm searchText={searchText} defaultType={searchType} submitAction={getBook}/>
                 </div>
                 <div className='searchText group'>
-                    <h4 className='label'>
-                        <i className='fa fa-paper-plane' aria-hidden="true"></i>&nbsp;&nbsp;SearchText:
-                    </h4>
+                    <h5 className='label'>
+                        <i className='fa fa-pencil' aria-hidden="true"></i>&nbsp;&nbsp;Keyword:
+                    </h5>
                     <div className='searchText-show'>
                        {searchText}
                     </div>
                 </div>
                 <div className='searchList group'>
-                    <h4 className='label'>
-                        <i className='fa fa-paper-plane' aria-hidden="true"></i>&nbsp;&nbsp;SearchResult:
-                    </h4>
-                    <SearchList lists={lists} hasSearched={hasSearched}/> {(searchLoading_nthu || searchLoading_nctu) && <Alert color='warning' className='loading'>Loading...</Alert>}
+                    <h5 className='label'>
+                        <i className='fa fa-list' aria-hidden="true"></i>&nbsp;&nbsp;Search Result:
+                    </h5>
+                    <SearchList lists={lists} hasSearched={hasSearched}/> {(searchLoading_nthu || searchLoading_nctu) && <Alert size='lg' color='warning' className='loading'><i className="fa fa-refresh fa-spin fa-fw"></i>&nbsp;Loading...</Alert>}
                 </div>
             </div>
         );

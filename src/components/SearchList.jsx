@@ -20,9 +20,9 @@ export default class PostList extends React.Component {
         const {lists, hasSearched} = this.props;
 
         let children = (
-   
+
             <ListGroupItem className='empty d-flex justify-content-center align-items-center'>
-                {hasSearched && <div className='empty-text'>No Result.<br/>Try another searchText.</div>}
+                {hasSearched && <div className='empty-text'>No Result.<br/>Try another search text.</div>}
                 {!hasSearched && <div className='empty-text'>Try to search something!</div>}
             </ListGroupItem>
 
@@ -30,10 +30,10 @@ export default class PostList extends React.Component {
         if (lists.length) {
             children = lists.map(p => (
                 <div className='item'>
-                <h5 className= {`${p.location} title`}>{p.location}</h5>
-                <ListGroupItem key={p.id} action className= {`${p.location} content`}>
-                    <SearchItem {...p}/>
-                </ListGroupItem>
+                    <h5 className= {`${p.location} title`}>{p.location}</h5>
+                    <ListGroupItem key={p.id} action className= {`${p.location} content`}>
+                        <SearchItem {...p}/>
+                    </ListGroupItem>
                 </div>
             ));
         }

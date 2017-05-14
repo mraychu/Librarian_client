@@ -48,19 +48,17 @@ class Main extends React.Component {
                     <div className='bg-faded navbar-top'>
                         <div className='container navbar-mid'>
                             <Navbar color='faded' light toggleable className='navbar-top'>
-                                <img className='icon' src="../images/l_icon.png" height="42" width="42"/>
                                 <NavbarToggler right onClick={this.handleNavbarToggle}/>
                                 <NavbarBrand className='text-info ' href="/">
                                     <i className='space'>&nbsp;</i> <i className='title'>Libraian</i></NavbarBrand>
                                 <Collapse isOpen={this.props.navbarToggle} navbar>
                                     <Nav navbar>
-                                        
                                         <NavItem>
                                             <NavLink className='item' tag={Link} to='/history'>History</NavLink>
                                         </NavItem>
                                     </Nav>
-
                                 </Collapse>
+                                <img className='icon' src="../images/l_icon.png" height="42" width="42"/>
                             </Navbar>
                         </div>
                     </div>
