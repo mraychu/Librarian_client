@@ -78,8 +78,8 @@ class SearchForm extends React.Component {
                             <DropdownItem type='button' onClick={this.handleNameSearchType}><i className="fa fa-book fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;書名</DropdownItem>
                             <DropdownItem type='button' onClick={this.handleISBNSearchType}><i className='fa fa-barcode fa-lg' aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;ISBN</DropdownItem>
                         </DropdownMenu>
-                    </ButtonDropdown>&nbsp;
-                    <Button className='not-weathermood-btn' color="info"><i className='fa fa-rocket fa-lg' aria-hidden="true"></i>&nbsp;&nbsp;Search</Button>
+                    </ButtonDropdown>&nbsp;&nbsp;
+                    <Button data-wow-iteration="999" data-wow-duration="2s" className='wow pulse not-weathermood-btn' color="info"><i className='fa fa-rocket fa-lg' aria-hidden="true"></i>&nbsp;&nbsp;Search</Button>
                 </Form>
 
             </div>
@@ -120,6 +120,9 @@ class SearchForm extends React.Component {
             let history_cookie = cookie.load('history');
             if (history_cookie === undefined) {
                 history_cookie = [];
+            } else if (history_cookie.length>=15) {
+                // Max # of history
+                history_cookie.pop();
             }
             let date = new Date();
             let date_f = moment(date).calendar();

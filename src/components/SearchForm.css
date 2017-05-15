@@ -31,7 +31,7 @@ input::placeholder {
 
 .not-weathermood-btn:hover {
 		background-color: Crimson !important;
-		border: solid Crimson !important;
+		border: solid Crimson 1px !important;
 }
 
 /*.search-form .II{
