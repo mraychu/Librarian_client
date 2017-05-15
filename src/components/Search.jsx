@@ -67,8 +67,9 @@ class Search extends React.Component {
             : ''}`;
         //
         // document.body.className = `weather-bg ${group}`;
-        // document.querySelector('.weather-bg .mask').className = `mask ${masking ? 'masking' : ''}`;
-
+        // document.querySelector('.librarian-bg .unhasSearched').className = `.librarian-bg ${hasSearched
+        //     ? 'hasSearched'
+        //     : 'unhasSearched'}`;
         return (
             <div className='search'>
                 <div className='searchForm group'>
@@ -79,14 +80,15 @@ class Search extends React.Component {
                         <i className='fa fa-pencil' aria-hidden="true"></i>&nbsp;&nbsp;Keyword:
                     </h5>
                     <div className='searchText-show'>
-                       {searchText}
+                        {searchText}
                     </div>
                 </div>
                 <div className='searchList group'>
                     <h5 className='label'>
                         <i className='fa fa-list' aria-hidden="true"></i>&nbsp;&nbsp;Search Result:
                     </h5>
-                    <SearchList lists={lists} hasSearched={hasSearched}/> {(searchLoading_nthu || searchLoading_nctu) && <Alert size='lg' color='warning' className='loading'><i className="fa fa-refresh fa-spin fa-fw"></i>&nbsp;Loading...</Alert>}
+                    <SearchList lists={lists} hasSearched={hasSearched}/> {(searchLoading_nthu || searchLoading_nctu) && <Alert size='lg' color='warning' className='loading'>
+                        <i className="fa fa-refresh fa-spin fa-fw"></i>&nbsp;Loading...</Alert>}
                 </div>
             </div>
         );

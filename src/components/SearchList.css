@@ -42,6 +42,9 @@
 }
 
 @media (max-width: 576px) {
+    .title{
+        font-weight: 600 !important;
+    }
     .search-list .item {
         width: 90%;
         margin: 1.5rem auto;

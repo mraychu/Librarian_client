@@ -1,16 +1,14 @@
 .history-item {
-    width: 100%
+    width: 100%;
+    padding: 0px auto;
 }
 
 .history-item .history {
-    width: 100%
+    width: 100%;
+    padding: 0px auto;
 }
 
-.history-item .mood {
-    text-align: center;
-    font-size: 2rem;
-    width: 3rem;
-}
+
 
 .history-item .wrap {
     width: 100%;
@@ -18,13 +16,13 @@
     overflow: hidden;
     font-size: 1.7rem;
     letter-spacing: 1px;
-    margin-bottom: 0.2rem;
+    /*margin-bottom: 0.2rem;*/
 }
 
 .history-item .search-time {
-    color: #bcbcbc;
+    color: #bcbcbc !important;
     font-size: 1.2rem;
-    margin-bottom: 0.25rem;
+    /*margin-bottom: 0.25rem;*/
 }
 
 .history-item .text {
@@ -32,16 +30,8 @@
 }
 
 
-.history-item .vote {
-    color: #bcbcbc;
-    padding-top: 0.5rem;
-}
 
-.history-item .vote .vote-plus i {
-    color: #bcdff1;
-    padding-left: 0.5rem;
-}
-
+/*
 .tooltip-inner {
     max-width: none !important;
 }
@@ -54,8 +44,25 @@
 
 .tooltip-inner i.vote-tooltip:hover {
     color: #31b0d5
-}
+}*/
 
 .search-time {
     color: rgba(199, 194, 197) !important;
+}
+.text {
+    color: rgb(137,15,1) !important;
+    font-style: normal;
+}
+
+.time{
+    color: black !important;
+}
+
+@media (max-width: 576px) {
+    .history-item .wrap {
+        font-size: 1rem;
+    }
+    .history-item .search-time {
+        font-size: 0.8rem;
+    }
 }

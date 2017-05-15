@@ -2,14 +2,21 @@ html, body {
     height: 100%;
 }
 
-.librarian-bg {
+.librarian-bg{
     /*height: 100%;*/
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
     background-image: url('../images/main-bg_2.jpg');
+    /*background-color: black*/
 }
 
+/*.librarian-bg .hasSearched {
+    background-color: black !important;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}*/
 
 
 .librarian-bg .mask {
